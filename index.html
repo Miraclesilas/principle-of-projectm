@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="Principles of Project Management CBT Examination Practice App">
+  <title>Project Management CBT | Miracle Silas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark">PM</div><div><strong>Project Management CBT</strong><span>Principles • Exam Practice</span></div></div>
+    <div class="top-actions"><span id="userBadge" class="user-badge hidden"></span><button id="loginTop" class="btn ghost">Login</button><button id="registerTop" class="btn primary">Register</button></div>
+  </header>
+
+  <main>
+    <section id="landing" class="hero container">
+      <div class="hero-copy">
+        <span class="eyebrow">PUBLIC ADMINISTRATION • UYO</span>
+        <h1>Master <span>Principles of Project Management</span> through realistic CBT practice.</h1>
+        <p>Practice across objective, subjective and theory sections with randomized questions, automatic scoring and instant performance reports.</p>
+        <div class="hero-actions"><button id="heroRegister" class="btn primary large">Create Student Account</button><button id="heroLogin" class="btn secondary large">Student Login</button></div>
+        <div class="trust-row"><span>✓ 120-question database</span><span>✓ Randomized options</span><span>✓ Instant results</span></div>
+      </div>
+      <div class="hero-card">
+        <div class="mini-top"><span>EXAM DASHBOARD</span><span class="live-dot">● Practice</span></div>
+        <div class="score-ring"><div><strong>85%</strong><small>Practice score</small></div></div>
+        <div class="mini-stats"><div><b>120</b><span>Questions</span></div><div><b>03</b><span>Sections</span></div><div><b>∞</b><span>Attempts</span></div></div>
+      </div>
+    </section>
+
+    <section class="container feature-grid">
+      <article><div class="icon">01</div><h3>Register & Login</h3><p>Student profiles are stored locally for this static educational application.</p></article>
+      <article><div class="icon">02</div><h3>Choose Your Exam</h3><p>Select a section and the number of questions you want to attempt.</p></article>
+      <article><div class="icon">03</div><h3>Get Your Result</h3><p>Receive scores, accuracy, section performance and answer review immediately.</p></article>
+    </section>
+
+    <section id="dashboard" class="container dashboard hidden">
+      <div class="welcome"><div><span class="eyebrow">STUDENT DASHBOARD</span><h2>Welcome, <span id="studentName"></span></h2><p>Choose your practice mode. Questions and options are randomized for every attempt.</p></div><button id="logoutBtn" class="btn ghost">Logout</button></div>
+      <div class="setup-grid">
+        <div class="panel setup-panel">
+          <h3>Exam Setup</h3>
+          <label>Section
+            <select id="sectionSelect"><option value="all">Mixed Exam — All Sections</option><option value="objective">Objective</option><option value="subjective">Subjective</option><option value="theory">Theory</option></select>
+          </label>
+          <label>Questions to Attempt
+            <select id="countSelect"></select>
+          </label>
+          <label>Time Limit
+            <select id="timeSelect"><option value="0">No Time Limit</option><option value="30">30 Minutes</option><option value="60">60 Minutes</option><option value="90">90 Minutes</option></select>
+          </label>
+          <button id="startExam" class="btn primary full">Start Examination</button>
+          <p class="note">Objective questions are automatically graded. Subjective and theory responses use keyword-based educational marking and should be reviewed by a lecturer for formal assessment.</p>
+        </div>
+        <div class="panel syllabus-panel"><h3>Coverage</h3><div id="coverage"></div></div>
+      </div>
+      <div class="panel history-panel"><div class="panel-title"><h3>Recent Results</h3><button id="clearHistory" class="text-btn">Clear history</button></div><div id="history"></div></div>
+    </section>
+
+    <section id="exam" class="container exam hidden">
+      <div class="exam-head"><div><span id="examSection" class="eyebrow"></span><h2 id="examTitle"></h2></div><div class="timer" id="timer">--:--</div></div>
+      <div class="progress-wrap"><div class="progress-label"><span id="progressText"></span><span id="answeredText"></span></div><div class="progress"><div id="progressBar"></div></div></div>
+      <div class="exam-layout"><aside class="question-nav panel"><h4>Questions</h4><div id="questionGrid"></div><div class="legend"><span><i class="dot current"></i>Current</span><span><i class="dot answered"></i>Answered</span></div></aside>
+        <div class="question-card panel"><div class="question-meta"><span id="questionType"></span><span id="questionNumber"></span></div><h3 id="questionText"></h3><div id="answerArea"></div><div class="exam-controls"><button id="prevBtn" class="btn ghost">Previous</button><button id="nextBtn" class="btn primary">Next</button><button id="submitBtn" class="btn danger hidden">Submit Exam</button></div></div>
+      </div>
+    </section>
+
+    <section id="result" class="container result hidden">
+      <div class="result-hero panel"><span class="eyebrow">EXAM COMPLETED</span><h2 id="resultTitle">Your Result</h2><div class="result-main"><div class="result-score"><strong id="scorePercent">0%</strong><span>Overall Score</span></div><div class="result-stats"><div><b id="correctCount">0</b><span>Correct</span></div><div><b id="wrongCount">0</b><span>Incorrect</span></div><div><b id="totalCount">0</b><span>Attempted</span></div></div></div><div id="sectionResults" class="section-results"></div><div class="result-actions"><button id="reviewBtn" class="btn secondary">Review Answers</button><button id="newExamBtn" class="btn primary">New Examination</button></div></div>
+      <div id="reviewPanel" class="panel review hidden"><div class="panel-title"><h3>Answer Review</h3><button id="closeReview" class="text-btn">Close</button></div><div id="reviewList"></div></div>
+    </section>
+  </main>
+
+  <footer><strong>Built by Miracle Silas</strong><span>Department of Public Administration, Uyo</span><small>This application was created for educational purposes.</small></footer>
+
+  <div id="authModal" class="modal hidden"><div class="modal-backdrop"></div><div class="modal-card"><button class="modal-close" data-close="authModal">×</button><div class="auth-brand"><div class="brand-mark">PM</div><div><strong>Project Management CBT</strong><span>Student Access</span></div></div><div class="tabs"><button id="loginTab" class="tab active">Login</button><button id="registerTab" class="tab">Register</button></div>
+    <form id="loginForm"><h2>Welcome back</h2><p>Enter your student details to continue.</p><label>Username<input id="loginUsername" required autocomplete="username" placeholder="e.g. gamebhoy"></label><label>Password<input id="loginPassword" required type="password" autocomplete="current-password" placeholder="••••••••"></label><button class="btn primary full" type="submit">Login</button></form>
+    <form id="registerForm" class="hidden"><h2>Create student account</h2><p>Set up your profile before starting practice.</p><label>Full Name<input id="regName" required placeholder="Your full name"></label><label>Username<input id="regUsername" required minlength="3" placeholder="Choose a username"></label><label>Password<input id="regPassword" required minlength="4" type="password" placeholder="At least 4 characters"></label><label>Confirm Password<input id="regConfirm" required type="password" placeholder="Repeat password"></label><button class="btn primary full" type="submit">Create Account</button></form>
+  </div></div>
+  <script src="app.js"></script>
+</body>
+</html>
